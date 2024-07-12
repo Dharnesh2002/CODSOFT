@@ -38,7 +38,7 @@ Main.java;
                   int a=0;
                   int count=0;
                   while(a==0){
-                      System.out.print("Enter the number that you have guessed : ");
+                      System.out.print("Enter the number that you have guessed with in the range(0 - 100): ");
                       count++;
                       int gnum=p.nextInt();
                       if(count <=5){
