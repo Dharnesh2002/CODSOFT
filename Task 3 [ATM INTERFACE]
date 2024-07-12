@@ -1,0 +1,89 @@
+TASK 3 ATM INTERFACE
+
+1.Create a class to represent the ATM machine.
+
+2. Design the user interface for the ATM, including options such as withdrawing, depositing, and
+checking the balance.
+
+3. Implement methods for each option, such as withdraw(amount), deposit(amount), and
+checkBalance().
+
+4. Create a class to represent the user's bank account, which stores the account balance.
+
+5. Connect the ATM class with the user's bank account class to access and modify the account
+balance.
+
+6. Validate user input to ensure it is within acceptable limits (e.g., sufficient balance for withdrawals).
+
+7. Display appropriate messages to the user based on their chosen options and the success or failure
+of their transactions.
+
+Main.java
+
+      import java.util.*;
+      public class ATM{
+          public static void main(String args[]){
+              
+              Scanner p=new Scanner(System.in);
+              System.out.println("Welcome to CodSoft ATM Interface.\nFirst Step need to deposit the money.");
+              System.out.print("Enter the Amount need to be deposit : ");
+              double a=p.nextDouble();
+              bankAccount b=new bankAccount(a);
+              System.out.println("The amount is deposited to your account.");
+              System.out.println("List of Functions\nPress 'W' for Withdrawal\nPress 'D' for Deposit\nPress 'C' for Check Balance");
+              char f=p.next().charAt(0);
+              while(f=='D' || f=='W' || f=='C'){
+                  if(f=='D'){
+                      System.out.print("Enter the Amount to be deposited : ");
+                      double amt=p.nextDouble();
+                      deposit(b,amt);
+                      System.out.println("List of Functions\nPress 'W' for Withdrawal\nPress 'D' for Deposit\nPress 'C' for Check Balance\nPress 'N' for cancel the transaction");
+                      f=p.next().charAt(0);
+                  }
+                  if(f=='C'){
+                      checkBalance(b);
+                      System.out.println("List of Functions\nPress 'W' for Withdrawal\nPress 'D' for Deposit\nPress 'C' for Check Balance\nPress 'N' for cancel the transaction");
+                       f=p.next().charAt(0);
+                  }
+                  if(f=='W'){
+                      System.out.print("Enter the Amount to be Withdraw : ");
+                      double amt=p.nextDouble();
+                      if(amt>b.getAmt()){
+                          System.out.println("Insufficient balance for withdrawal. Enter the amount within the balance : ");
+                          amt=p.nextDouble();
+                          withdraw(b,amt);
+                          System.out.println("List of Functions\nPress 'W' for Withdrawal\nPress 'D' for Deposit\nPress 'C' for Check Balance\nPress 'N' for cancel the transaction");
+                       f=p.next().charAt(0);
+                      }
+                      withdraw(b,amt);
+                      System.out.println("List of Functions\nPress 'W' for Withdrawal\nPress 'D' for Deposit\nPress 'C' for Check Balance\nPress 'N' for cancel the transaction");
+                       f=p.next().charAt(0);
+                  }
+              }
+              System.out.println("Thank you for using our service");
+          }
+          public static void checkBalance(bankAccount b){
+              System.out.println("The balance Amount is "+b.getAmt());
+          }
+          public static void deposit(bankAccount b,double amt){
+              amt=amt+b.getAmt();
+             b.setAmt(amt);
+             System.out.println("The amount has been deposited successfully.");
+          }
+          public static void withdraw(bankAccount b,double amt){
+              amt=b.getAmt()-amt;
+              b.setAmt(amt);
+          }
+      }
+      class bankAccount{
+          private double Amount;
+          bankAccount(double amount){
+              Amount=amount;
+          }
+          double getAmt(){
+              return Amount;
+          }
+          void setAmt(double Amt){
+              Amount=Amt;
+          }
+      }
