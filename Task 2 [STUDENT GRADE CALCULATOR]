@@ -1,0 +1,64 @@
+TASK 2
+
+Input: Take marks obtained (out of 100) in each subject.
+Calculate Total Marks: Sum up the marks obtained in all subjects.
+Calculate Average Percentage: Divide the total marks by the total number of subjects to get the
+average percentage.
+Grade Calculation: Assign grades based on the average percentage achieved.
+Display Results: Show the total marks, average percentage, and the corresponding grade to the user
+
+Main.java
+
+import java.util.*;
+public class Main{
+    public static void main(String args[]){
+        Scanner p=new Scanner(System.in);
+        System.out.print("Enter the mark Obtained in Chemistry out of 100: ");
+        double che=p.nextDouble();
+        System.out.print("Enter the mark Obtained in Physics out of 100: ");
+        double phy=p.nextDouble();
+        System.out.print("Enter the mark Obtained in Maths out of 100: ");
+        double mat=p.nextDouble();
+        System.out.print("Enter the mark Obtained in Data Structures out of 100: ");
+        double ds=p.nextDouble();
+        System.out.print("Enter the mark Obtained in Operating System out of 100: ");
+        double os=p.nextDouble();
+        double totalMarks=che+phy+mat+ds+os;
+        double averagePercentage=totalMarks/5;
+        if(averagePercentage>90 && averagePercentage<=100){
+            System.out.println("Total Marks : "+(int)totalMarks+"/500");
+            System.out.println("Avaerage Percentage : "+averagePercentage);
+            System.out.println("Grade : A");
+        }
+        else if(averagePercentage>80 && averagePercentage<=90){
+            System.out.println("Total Marks : "+(int)totalMarks+"/500");
+            System.out.println("Avaerage Percentage : "+averagePercentage+"%");
+            System.out.println("Grade : B");
+        }
+        else if(averagePercentage>70 && averagePercentage<=80){
+            System.out.println("Total Marks : "+(int)totalMarks+"/500");
+            System.out.println("Avaerage Percentage : "+averagePercentage+"%");
+            System.out.println("Grade : C");
+        }
+        else if(averagePercentage>70 && averagePercentage<=80){
+            System.out.println("Total Marks : "+(int)totalMarks+"/500");
+            System.out.println("Avaerage Percentage : "+averagePercentage+"%");
+            System.out.println("Grade : C");
+        }
+        else if(averagePercentage>60 && averagePercentage<=70){
+            System.out.println("Total Marks : "+(int)totalMarks+"/500");
+            System.out.println("Avaerage Percentage : "+averagePercentage+"%");
+            System.out.println("Grade : D");
+        }
+        else if(averagePercentage>=50 && averagePercentage<=60){
+            System.out.println("Total Marks : "+(int)totalMarks+"/500");
+            System.out.println("Avaerage Percentage : "+averagePercentage+"%");
+            System.out.println("Grade : E");
+        }
+        else{
+            System.out.println("Total Marks : "+(int)totalMarks+"/500");
+            System.out.println("Avaerage Percentage : "+averagePercentage+"%");
+            System.out.println("Grade : F [FAIL AND NEED TO REAPPEAR FOR EXAM]");
+        }
+    }
+}
